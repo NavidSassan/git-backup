@@ -13,7 +13,7 @@ import lib.shell3
 
 
 __author__ = 'Navid Sassan'
-__version__ = '2023022004'
+__version__ = '2023022005'
 
 DESCRIPTION = """A script that clones all the starred repos of the given GitHub user."""
 
@@ -98,7 +98,7 @@ def main():
     print(f'Found {len(stars)} stars for {args.USERNAME}.')
 
     errors = False
-    count = 1
+    count = 0
     for star in stars:
         count += 1
         repo_path = Path(args.BASE_DIR, star['owner']['login'])
