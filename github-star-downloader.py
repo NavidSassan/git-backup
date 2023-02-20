@@ -13,7 +13,7 @@ import lib.shell3
 
 
 __author__ = 'Navid Sassan'
-__version__ = '2023022001'
+__version__ = '2023022002'
 
 DESCRIPTION = """A script that clones all the starred repos of the given GitHub user."""
 
@@ -101,7 +101,7 @@ def main():
     errors = False
 
     for star in stars:
-        repo_path = Path(args.BASE_DIR, star['full_name'])
+        repo_path = Path(args.BASE_DIR, star['owner']['login'])
         if not Path(args.BASE_DIR).resolve() in repo_path.resolve().parents:
             print(f"ERROR: Filename {repo_path} is not in {Path(args.BASE_DIR)} directory. Skipping Repo {star['full_name']}.")
             errors = True
