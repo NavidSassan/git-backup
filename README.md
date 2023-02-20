@@ -4,7 +4,8 @@ A collection of scripts to locally backup git repositories. The idea is that you
 
 ## Requirements
 
-* `git --version` => 1.8.5
+* git
+* Python3 `requests` module
 
 
 ## Preparations

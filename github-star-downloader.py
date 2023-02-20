@@ -13,7 +13,7 @@ import lib.shell3
 
 
 __author__ = 'Navid Sassan'
-__version__ = '2023022002'
+__version__ = '2023022003'
 
 DESCRIPTION = """A script that clones all the starred repos of the given GitHub user."""
 
@@ -52,7 +52,6 @@ def parse_args():
 
 
 def get_stars(username: str, auth_token: Optional[str] = None, page: int = 1) -> list:
-    print(f'''{page=}''')
     headers = {}
     if auth_token:
         headers = {
@@ -113,8 +112,8 @@ def main():
             pass
 
         print(f'Cloning {star["full_name"]}...')
-        cmd = f"git -C '{repo_path}' clone --mirror '{star['clone_url']}'"
-        stdout, stderr, retc = lib.base3.coe(lib.shell3.shell_exec(cmd))
+        cmd = f"git clone --mirror '{star['clone_url']}'"
+        stdout, stderr, retc = lib.base3.coe(lib.shell3.shell_exec(cmd, cwd=repo_path))
         if retc != 0 and not 'already exists' in stderr:
             print(f'ERROR: Command "{cmd}" failed with {retc} and:\n{stdout}\n{stderr}')
             errors = True
