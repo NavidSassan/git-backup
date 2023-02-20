@@ -5,6 +5,8 @@ Description=Update the git backups for user %i
 ExecStart=/opt/git-backup/git-backup/github-star-downloader.py --base-dir /opt/git-backup/repos --username "%i"
 User=git-backup
 Group=git-backup
+# make sure we instantly see the output of the script in journald
+Environment=PYTHONUNBUFFERED=1
 
 [Install]
 WantedBy=basic.target
