@@ -1,0 +1,10 @@
+[Unit]
+Description=Update the git backups
+
+[Service]
+ExecStart=/usr/bin/env find /opt/git-backup/repos -type d -name '*.git' -exec echo {} \; -exec git --git-dir {} remote update \;
+User=git-backup
+Group=git-backup
+
+[Install]
+WantedBy=basic.target

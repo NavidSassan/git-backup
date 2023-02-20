@@ -1,0 +1,10 @@
+[Unit]
+Description=Update the git backups for user %i
+
+[Service]
+ExecStart=/opt/git-backup/git-backup/github-star-downloader.py --base-dir /opt/git-backup/repos --username "ci"
+User=git-backup
+Group=git-backup
+
+[Install]
+WantedBy=basic.target
