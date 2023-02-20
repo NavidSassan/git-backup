@@ -47,8 +47,8 @@ The `git-backup-update.service` searches for `.git` folders in the base director
 
 Installation:
 ```bash
-cp etc/systemd/system/git-backup-update.service /etc/systemd/system/git-backups-update.service
-cp etc/systemd/system/git-backup-update.timer /etc/systemd/system/git-backups-update.timer
+cp etc/systemd/system/git-backup-update.service /etc/systemd/system/git-backup-update.service
+cp etc/systemd/system/git-backup-update.timer /etc/systemd/system/git-backup-update.timer
 systemctl daemon-reload
 systemctl enable --now git-backup-update.timer
 ```
@@ -65,10 +65,10 @@ Usage:
 
 Systemd service and timer:
 ```bash
-cp etc/systemd/system/github-star-downloader.service /etc/systemd/system/github-star-downloader.service
-cp etc/systemd/system/github-star-downloader.timer /etc/systemd/system/github-star-downloader.timer
+cp etc/systemd/system/github-star-downloader@.service /etc/systemd/system/github-star-downloader@.service
+cp etc/systemd/system/github-star-downloader@.timer /etc/systemd/system/github-star-downloader@.timer
 
 $EDITOR /etc/systemd/system/github-star-downloader.service
 systemctl daemon-reload
-systemctl enable --now github-star-downloader.timer
+systemctl enable --now github-star-downloader@NavidSassan.timer
 ```
