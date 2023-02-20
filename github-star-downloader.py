@@ -13,7 +13,7 @@ import lib.shell3
 
 
 __author__ = 'Navid Sassan'
-__version__ = '2023022003'
+__version__ = '2023022004'
 
 DESCRIPTION = """A script that clones all the starred repos of the given GitHub user."""
 
@@ -98,8 +98,9 @@ def main():
     print(f'Found {len(stars)} stars for {args.USERNAME}.')
 
     errors = False
-
+    count = 1
     for star in stars:
+        count += 1
         repo_path = Path(args.BASE_DIR, star['owner']['login'])
         if not Path(args.BASE_DIR).resolve() in repo_path.resolve().parents:
             print(f"ERROR: Filename {repo_path} is not in {Path(args.BASE_DIR)} directory. Skipping Repo {star['full_name']}.")
@@ -111,7 +112,7 @@ def main():
         except FileExistsError:
             pass
 
-        print(f'Cloning {star["full_name"]}...')
+        print(f'Cloning {star["full_name"]} ({count}/{len(stars)})...')
         cmd = f"git clone --mirror '{star['clone_url']}'"
         stdout, stderr, retc = lib.base3.coe(lib.shell3.shell_exec(cmd, cwd=repo_path))
         if retc != 0 and not 'already exists' in stderr:
