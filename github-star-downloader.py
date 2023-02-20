@@ -13,7 +13,7 @@ import lib.shell3
 
 
 __author__ = 'Navid Sassan'
-__version__ = '2023022005'
+__version__ = '2023022006'
 
 DESCRIPTION = """A script that clones all the starred repos of the given GitHub user."""
 
@@ -81,6 +81,7 @@ def get_stars(username: str, auth_token: Optional[str] = None, page: int = 1) ->
 def main():
     args = parse_args()
 
+    print(f'Fetching stars for {args.USERNAME}.')
     stars = get_stars(args.USERNAME, args.TOKEN)
 
     # use this for testing while avoiding the api rate limit
@@ -95,7 +96,7 @@ def main():
     # with open('/tmp/stars.json', 'r') as f:
     #     stars = json.load(f)
 
-    print(f'Found {len(stars)} stars for {args.USERNAME}.')
+    print(f'Found {len(stars)} stars.')
 
     errors = False
     count = 0
