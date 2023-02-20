@@ -2,7 +2,7 @@
 Description=Update the git backups for user %i
 
 [Service]
-ExecStart=/opt/git-backup/git-backup/github-star-downloader.py --base-dir /opt/git-backup/repos --username "ci"
+ExecStart=/opt/git-backup/git-backup/github-star-downloader.py --base-dir /opt/git-backup/repos --username "%i"
 User=git-backup
 Group=git-backup
 
