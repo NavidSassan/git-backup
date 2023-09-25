@@ -2,7 +2,7 @@
 Description=Timer for git-backup-update.service
 
 [Timer]
-OnCalendar=05:00:00
+OnCalendar=05:30:00
 
 [Install]
 WantedBy=timers.target
