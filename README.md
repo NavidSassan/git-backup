@@ -69,7 +69,7 @@ Systemd service and timer:
 cp etc/systemd/system/github-star-downloader@.service /etc/systemd/system/github-star-downloader@.service
 cp etc/systemd/system/github-star-downloader@.timer /etc/systemd/system/github-star-downloader@.timer
 
-$EDITOR /etc/systemd/system/github-star-downloader.service
+$EDITOR /etc/systemd/system/github-star-downloader@.service
 systemctl daemon-reload
 systemctl enable --now github-star-downloader@NavidSassan.timer
 ```
